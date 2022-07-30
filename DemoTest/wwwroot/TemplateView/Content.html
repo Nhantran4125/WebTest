@@ -1,0 +1,22 @@
+﻿<div class="container">
+    <div class="form-group">       
+            <input type="text" class="form-control" placeholder="Type here..." ng-model="searchString">
+            <a href="#!/add" class="btn btn-info" style="margin-top:10px">Add New +</a>    
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-4" style="margin-bottom:10px" ng-repeat="product in ProductList | filter : searchFilter">
+            <div class="card">
+                <div class="card-body">
+                    <img class="img-thumbnail" src="{{product.link}}" />
+                    <p>ID: {{product.id}}</p>
+                    <p>Name: {{product.name}}</p>
+                    <p>Description: {{product.description}}</p>
+                    <p>Price: {{product.price}}</p>
+                    <a class="btn btn-outline-secondary" ng-click=delete(product.id)>Delete</a>
+                    <a class="btn btn-info" href="#!/edit/{{product.id}}">Edit</a>
+                </div>
+            </div>
+        </div>        
+    </div>
+</div>

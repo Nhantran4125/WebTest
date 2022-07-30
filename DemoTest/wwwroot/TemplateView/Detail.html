@@ -1,0 +1,25 @@
+﻿<div class="container" style="margin-bottom:70px">
+    <h4 class="text-center">ADD/EDIT PRODUCT</h4>
+    <form id="editForm">
+        <div class="row">
+            <div class="col-md-4">
+                <img class="img-thumbnail" src="{{selectedProduct.link}}" />
+            </div>
+            <div class="col-md-8">
+                <label>ID</label>
+                <input type="text" class="form-control" ng-model="selectedProduct.id">
+                <label>Name</label>
+                <input type="text" class="form-control" ng-model="selectedProduct.name">
+                <label>Price</label>
+                <input type="text" class="form-control" ng-model="selectedProduct.price">
+                <label>Description</label>
+                <input type="text" class="form-control" ng-model="selectedProduct.description">
+                <input type="file" accept="image/png, image/jpg">
+                <input type="button" class="btn btn-warning" style="margin-top:10px" value="Edit" 
+                       ng-click="updateProduct(selectedProduct)">
+                <input type="button" class="btn btn-info" style="margin-top:10px" value="Add"
+                       ng-click="addProduct(selectedProduct)">
+            </div>
+        </div>
+    </form>   
+</div>
