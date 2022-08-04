@@ -20,10 +20,7 @@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                        </li>                       
                     </ul>
                 </div>
             </div>
@@ -54,7 +51,9 @@
     <script src="~/app/app.module.js"></script>
     <script src="~/app/app.config.js"></script>
     <script src="~/app/controller.js"></script>
-    <script src="~/app/crud.controller.js"></script>
+    <script src="~/app/edit.controller.js"></script>
+    <script src="~/js/dirPagination.js"></script>
+    <script src="~/app/fileModel.directive.js"></script>
 
     
     @await RenderSectionAsync("Scripts", required: false)

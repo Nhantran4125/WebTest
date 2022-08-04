@@ -13,7 +13,7 @@
                 }).
                 when('/edit/:id', {
                     templateUrl: 'TemplateView/Detail.html',
-                    controller: 'crudController'
+                    controller: 'editController'
                 }).
                 when('/add', {
                     templateUrl: 'TemplateView/Detail.html',
@@ -21,4 +21,4 @@
                 }).
                 otherwise('TemplateView/Content.html');
         }
-  );
+);

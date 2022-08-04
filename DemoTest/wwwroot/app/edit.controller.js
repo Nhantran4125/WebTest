@@ -3,22 +3,22 @@
 
     angular
         .module('testApp')
-        .controller('crudController', crudController);
+        .controller('editController', editController);
 
-    crudController.$inject = ['$location', '$http', '$scope', '$routeParams'];
+    editController.$inject = ['$location', '$http', '$scope', '$routeParams'];
 
-    function crudController($location, $http, $scope, $routeParams) {
+    function editController($location, $http, $scope, $routeParams) {
         var id = $routeParams.id;
-        console.log(id);
-
-        console.log('Hello world!');
+        $scope.isEditForm = true;
 
         $http({
             method: 'GET',
             url: 'api/Product/detail/' + $routeParams.id
+
         }).then(function successCallback(response) {
             $scope.selectedProduct = response.data;
-            console.log($scope.selectedProduct);
+            console.log($scope.selectedProduct);           
+
         }, function errorCallback(response) {
             console.log(response);
         });
@@ -26,12 +26,23 @@
         $scope.updateProduct = function (item) {
             var isConfirmed = confirm("Are you sure to update this product?");
             if (isConfirmed) {
+                item.file = $scope.file;
+
+                var formData = new FormData();
+                formData.append('id', item.id);
+                formData.append('name', item.name);
+                formData.append('price', item.price);
+                formData.append('description', item.description);
+                
+                formData.append('file', item.file);
+
                 $http({
                     method: 'POST',
                     url: 'api/Product/update',
-                    data: JSON.stringify(item),
+                    data: formData,
+                    enctype: 'multipart/form-data',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': undefined
                     }
     
                 }).then(function successCallback(response) {

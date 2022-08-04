@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\js\angular-1.8.2\i18n\ngLocale\" />
+    <Folder Include="wwwroot\pic\" />
   </ItemGroup>
 
   <ItemGroup>

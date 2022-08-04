@@ -3,7 +3,7 @@
     <form id="editForm">
         <div class="row">
             <div class="col-md-4">
-                <img class="img-thumbnail" src="{{selectedProduct.link}}" />
+                <img id="thumbnailPic" class="img-thumbnail" src="{{selectedProduct.link}}" />
             </div>
             <div class="col-md-8">
                 <label>ID</label>
@@ -14,11 +14,11 @@
                 <input type="text" class="form-control" ng-model="selectedProduct.price">
                 <label>Description</label>
                 <input type="text" class="form-control" ng-model="selectedProduct.description">
-                <input type="file" accept="image/png, image/jpg">
-                <input type="button" class="btn btn-warning" style="margin-top:10px" value="Edit" 
-                       ng-click="updateProduct(selectedProduct)">
-                <input type="button" class="btn btn-info" style="margin-top:10px" value="Add"
-                       ng-click="addProduct(selectedProduct)">
+                <input file-model="file" type="file" accept="image/png, image/jpg">
+                <input type="button" class="btn btn-warning" id="deleteBtn" style="margin-top:10px" value="Edit" 
+                       ng-click="updateProduct(selectedProduct)" ng-if="isEditForm">
+                <input type="button" class="btn btn-info" id="editBtn" style="margin-top:10px" value="Add"
+                       ng-click="addProduct(selectedProduct)" ng-if="!isEditForm">
             </div>
         </div>
     </form>   
